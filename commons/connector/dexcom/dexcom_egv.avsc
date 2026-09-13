@@ -35,7 +35,7 @@
       "name": "value",
       "type": ["null", "int"],
       "default": null,
-      "doc": "39: Indicates that the value was calculated, and it was less than 40; the value 39 is used in calculations but is not explicitly displayed to end users 40 to 400: This is the measuring range of the Dexcom CGM. 401: Indicates that the value was calculated, and it was greater than 400; the value 401 is used in calculations but is not explicitly displayed to end users."
+      "doc": "Estimated glucose value in milligrams per decilitre. 39 means the calculated value was less than 40 and is used in calculations but not shown to users. 40 to 400 is the Dexcom measuring range. 401 means the calculated value was greater than 400 and is used in calculations but not shown to users."
     },
     {
       "name": "status",
@@ -89,20 +89,40 @@
     },
     {
       "name": "displayDevice",
-      "type": ["null", "DexcomDisplayDevice"],
+      "type": [
+        "null",
+        {
+          "type": "enum",
+          "name": "DexcomDisplayDevice",
+          "doc": "Type of Dexcom display device.",
+          "symbols": ["RECEIVER", "IOS", "ANDROID", "UNKNOWN"]
+        }
+      ],
       "default": null,
       "doc": "The type of display device the estimated glucose value came from. Values include unknown, receiver, iOS, and android."
     }, 
     {
       "name": "transmitterGeneration",
-      "type": "DexcomTransmitterGeneration",
+      "type": {
+        "type": "enum",
+        "name": "DexcomTransmitterGeneration",
+        "doc": "Generation of the transmitter associated with this upload.",
+        "symbols": ["G6", "G6_PLUS", "G6_PRO", "G7", "UNKNOWN"]
+      },
+      "default": "UNKNOWN",
       "doc": "Generation of the transmitter associated with this upload."
-    }, 
+    },
     {
       "name": "transmitterGenerationVariant",
-      "type": "DexcomTransmitterGenerationVariant",
+      "type": {
+        "type": "enum",
+        "name": "DexcomTransmitterGenerationVariant",
+        "doc": "Transmitter generation variant associated with this upload.",
+        "symbols": ["D1_PLUS", "G6", "G7", "G7_15_DAY", "UNKNOWN"]
+      },
+      "default": "UNKNOWN",
       "doc": "Transmitter generation variant associated with this upload."
-    }, 
+    },
     {
       "name": "displayApp",
       "type": ["null", "string"],

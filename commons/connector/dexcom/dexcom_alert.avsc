@@ -54,6 +54,7 @@
         "doc": "Generation of the transmitter associated with this upload.",
         "symbols": ["G6", "G6_PLUS", "G6_PRO", "G7", "UNKNOWN"]
       },
+      "default": "UNKNOWN",
       "doc": "Generation of the transmitter associated with this upload."
     }, 
     {
@@ -64,6 +65,7 @@
         "doc": "Transmitter generation variant associated with this upload.",
         "symbols": ["D1_PLUS", "G6", "G7", "G7_15_DAY", "UNKNOWN"]
       },
+      "default": "UNKNOWN",
       "doc": "Transmitter generation variant associated with this upload."
     }, 
     {

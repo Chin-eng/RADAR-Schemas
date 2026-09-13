@@ -94,17 +94,37 @@
     }, 
     {
       "name": "transmitterGeneration",
-      "type": "DexcomTransmitterGeneration",
+      "type": {
+        "type": "enum",
+        "name": "DexcomTransmitterGeneration",
+        "doc": "Generation of the transmitter associated with this upload.",
+        "symbols": ["G6", "G6_PLUS", "G6_PRO", "G7", "UNKNOWN"]
+      },
+      "default": "UNKNOWN",
       "doc": "Generation of the transmitter associated with this upload."
-    }, 
+    },
     {
       "name": "transmitterGenerationVariant",
-      "type": "DexcomTransmitterGenerationVariant",
+      "type": {
+        "type": "enum",
+        "name": "DexcomTransmitterGenerationVariant",
+        "doc": "Transmitter generation variant associated with this upload.",
+        "symbols": ["D1_PLUS", "G6", "G7", "G7_15_DAY", "UNKNOWN"]
+      },
+      "default": "UNKNOWN",
       "doc": "Transmitter generation variant associated with this upload."
-    }, 
+    },
     {
       "name": "displayDevice",
-      "type": ["null", "DexcomDisplayDevice"],
+      "type": [
+        "null",
+        {
+          "type": "enum",
+          "name": "DexcomDisplayDevice",
+          "doc": "Type of Dexcom display device.",
+          "symbols": ["RECEIVER", "IOS", "ANDROID", "UNKNOWN"]
+        }
+      ],
       "default": null,
       "doc": "The type of display device the event came from. Values include unknown, receiver, iOS, and android."
     }, 
